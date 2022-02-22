@@ -12,7 +12,7 @@ dataset = st.container()
 plots =st.container()
 
 with sidebar:
-    st.title('🐉 SLYTHERIN 🐉')
+    st.title('🐍 SLYTHERIN 🐍')
     st.header('Team members:')
     st.markdown('* **Peter**')
     st.markdown('* **Busayo**')
