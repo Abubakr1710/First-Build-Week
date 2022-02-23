@@ -10,6 +10,7 @@ sidebar = st.sidebar
 header = st.container()
 dataset = st.container()
 plots =st.container()
+bestbook_author = st.container()
 
 with sidebar:
     st.title('🐍 SLYTHERIN 🐍')
@@ -44,6 +45,23 @@ with plots:
 
     graph1 = df['num_rating'].head(21)
     st.bar_chart(graph1)
+
+with bestbook_author:
+    
+    st.header('Best book of any Authors')
+
+    author_name  = df['author'].unique().tolist()
+    author = st.selectbox('Choose author', author_name, 0)
+    df= df[df['author'] == author]
+    ans = author
+    st.write(author, ans )
+
+
+    
+
+
+
+
 
 
 
