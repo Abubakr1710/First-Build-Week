@@ -14,7 +14,7 @@ bestbook_author = st.container()
 bestbook = st.container()
 
 with sidebar:
-    st.title('🐍 SLYTHERIN 🐍')
+    st.image('data//img1.jpg')
     st.header('Team members:')
     st.markdown('* **Peter**')
     st.markdown('* **Busayo**')
@@ -25,12 +25,8 @@ with sidebar:
     add_selectbox = st.sidebar.selectbox(
     "Do you want to contact with us?",
     ("Peter","Busayo","Islom","Abubakr"))
+    
 
-    option = st.selectbox(
-     'How would you like to be contacted?',
-     ('Email', 'Home phone', 'Mobile phone'))
-
-    st.write('You selected:', option)
 
 with header:
     st.title('Welcome to our project')
