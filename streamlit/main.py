@@ -11,6 +11,7 @@ header = st.container()
 dataset = st.container()
 plots =st.container()
 bestbook_author = st.container()
+bestbook = st.container()
 
 with sidebar:
     st.title('🐍 SLYTHERIN 🐍')
@@ -63,6 +64,31 @@ with bestbook_author:
     rat_book = df[df['author']==author].sort_values('minmax_norm_ratings', ascending=False)['minmax_norm_ratings'].head(1).item() 
     st.write("Author's best book is:", name_book)
     st.write('The Rating of the book is:',rat_book)
+
+
+
+with bestbook:
+    st.header('In here you can find the best books to read by rating')
+    data = pd.read_csv('C:/Users/Abubakr/Documents/GitHub/First-Build-Week/new_data.csv')
+
+
+    ratingbook = data['minmax_norm_ratings'].sort_values(ascending=True)
+    rating = st.select_slider('Choose rating', ratingbook,1.0)
+    data = data[data['minmax_norm_ratings'] == rating]
+    nbook = data[data['minmax_norm_ratings']==rating].sort_values('minmax_norm_ratings', ascending=True)['title'].head(1).item()
+    nwriter = data[data['minmax_norm_ratings']==rating].sort_values('minmax_norm_ratings', ascending=True)['author'].head(1).item()
+    nrating = data[data['minmax_norm_ratings']==rating].sort_values('minmax_norm_ratings', ascending=True)['num_rating'].head(1).item()
+    st.write(nrating,'ratings')
+    st.write('writer:',nwriter)
+    st.write('This is a best book in your match:', nbook)
+
+
+
+
+    
+
+
+
 
 
     
