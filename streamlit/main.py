@@ -16,11 +16,13 @@ with sidebar:
     st.header('Team members:')
     st.markdown('* **Peter**')
     st.markdown('* **Busayo**')
+    st.markdown('* **Islom**')
     st.markdown('* **Abubakr**')
+
 
     add_selectbox = st.sidebar.selectbox(
     "Do you want to contact with us?",
-    ("Peter", "Busayo", "Abubakr"))
+    ("Peter","Busayo","Islom","Abubakr"))
 
 with header:
     st.title('Welcome to our project')
@@ -39,5 +41,11 @@ with plots:
 
     graph = df['minmax_norm_ratings'].head(21)
     st.bar_chart(graph)
+
+    graph1 = df['num_rating'].head(21)
+    st.bar_chart(graph1)
+
+
+
 
 
