@@ -30,7 +30,7 @@ with header:
 with dataset:
     st.header('Data section')
     
-    df = pd.read_csv('C:/Users/Abubakr/Documents/GitHub/First-Build-Week/streamlit/data/new_data.csv')
+    df = pd.read_csv('C:/Users/Abubakr/Documents/GitHub/First-Build-Week/new_data.csv')
     st.write(df)
 
 with plots:
