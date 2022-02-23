@@ -25,6 +25,12 @@ with sidebar:
     "Do you want to contact with us?",
     ("Peter","Busayo","Islom","Abubakr"))
 
+    option = st.selectbox(
+     'How would you like to be contacted?',
+     ('Email', 'Home phone', 'Mobile phone'))
+
+    st.write('You selected:', option)
+
 with header:
     st.title('Welcome to our project')
 
