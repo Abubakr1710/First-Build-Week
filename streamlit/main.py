@@ -46,7 +46,7 @@ with plots:
     st.header('Welcome to plots')
     st.markdown('* **Headache section 🤪**')
 
-    graph = df['minmax_norm_ratings'].head(21)
+    graph = df['minmax_norm_ratings'].sort_values(ascending=True).head(20)
     st.bar_chart(graph)
 
     graph1 = df['num_rating'].head(21)
