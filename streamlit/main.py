@@ -61,7 +61,8 @@ with bestbook_author:
     df= df[df['author'] == author]
     name_book = df[df['author']==author].sort_values('minmax_norm_ratings', ascending=False)['title'].head(1).item()
     rat_book = df[df['author']==author].sort_values('minmax_norm_ratings', ascending=False)['minmax_norm_ratings'].head(1).item() 
-    st.write("Author's best book is:", name_book, 'The Rating of the book is:',rat_book )
+    st.write("Author's best book is:", name_book)
+    st.write('The Rating of the book is:',rat_book)
 
 
     
