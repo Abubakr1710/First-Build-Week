@@ -5,7 +5,7 @@ import streamlit as st
 import pandas as pd
 import plotly.figure_factory as ff
 import matplotlib.pyplot as plt
-
+import plotly_express as px
 
 
 sidebar = st.sidebar
@@ -58,12 +58,11 @@ with firstone:
     st.write(df)
     data = df.groupby(['original_publish_year'])['minmax_norm_ratings'].mean().round(2)
     st.write(data)
-    fig = data.sort_values(ascending=False).head(20)
+    fig = data.sort_values(ascending=False)
     st.bar_chart(fig)
 
-
-    #fig = px.scatter(df, x = 'Weight', y = 'Height', size='Index',color='Index', hover_name='Index')
-    #st.write(fig)
+    fig = px.scatter(data, x = 'original_publish_year', y = 'minmax_norm_ratings', color ='minmax_norm_ratings' ,size='num_ratings')
+    st.write(fig)
 
 with bestbook_author:
     
