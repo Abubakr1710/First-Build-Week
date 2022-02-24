@@ -1,4 +1,5 @@
 from email import header
+from pickle import TRUE
 from matplotlib.pyplot import xlabel, ylabel
 import streamlit as st
 import pandas as pd
@@ -49,15 +50,15 @@ with plots:
     graph = df['minmax_norm_ratings'].sort_values(ascending=True).head(20)
     st.bar_chart(graph)
 
-    graph1 = df['num_rating'].head(21)
+    graph1 = df['num_ratings'].head(21)
     st.bar_chart(graph1)
 
 with firstone:
     st.title('Data analyze')
     st.write(df)
-    data = df.groupby(['author'])['minmax_norm_ratings'].mean().round(2)
+    data = df.groupby(['original_publish_year'])['minmax_norm_ratings'].mean().round(2)
     st.write(data)
-    fig = data.head(70)
+    fig = data.sort_values(ascending=False).head(20)
     st.bar_chart(fig)
 
 
@@ -91,7 +92,7 @@ with bestbook:
     data = data[data['minmax_norm_ratings'] == rating]
     nbook = data[data['minmax_norm_ratings']==rating].sort_values('minmax_norm_ratings', ascending=True)['title'].head(1).item()
     nwriter = data[data['minmax_norm_ratings']==rating].sort_values('minmax_norm_ratings', ascending=True)['author'].head(1).item()
-    nrating = data[data['minmax_norm_ratings']==rating].sort_values('minmax_norm_ratings', ascending=True)['num_rating'].head(1).item()
+    nrating = data[data['minmax_norm_ratings']==rating].sort_values('minmax_norm_ratings', ascending=True)['num_ratings'].head(1).item()
     st.write(nrating,'ratings')
     st.write('writer:',nwriter)
     st.write('This is a best book in your match:', nbook)
