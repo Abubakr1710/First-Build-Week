@@ -16,7 +16,7 @@ bookSeries = []
 # bookSeries = []
 
 number = 0
-for url_link in url_links[50:100]:
+for url_link in url_links[0:1000]:
     try: 
         sleep(0.3)
         website = requests.get(url_link)

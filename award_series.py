@@ -8,5 +8,12 @@ series50 =  [1, 'None', 1, 0, 'None', 1, 'None', 1, 1, 0, 0, 1, 0, 0, 0, 'None',
 
 series100 =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 'None', 1, 0, 1, 'None', 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 'None', 1, 0, 1, 'None', 0, 0, 0, 1, 1, 0, 1, 0, 1]
 
-print(len(awards50))
-print(len(awards100))
+
+# award_1st_100 = awards50 + awards100
+# print(award_1st_100)
+# print(len(award_1st_100))
+
+series_first_100 = series50 + series100
+print(series_first_100)
+print(len(series_first_100))
+
