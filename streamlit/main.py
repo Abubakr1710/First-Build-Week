@@ -1,8 +1,9 @@
 from email import header
-from matplotlib.pyplot import xlabel
+from matplotlib.pyplot import xlabel, ylabel
 import streamlit as st
 import pandas as pd
 import plotly.figure_factory as ff
+import matplotlib.pyplot as plt
 
 
 
@@ -54,9 +55,10 @@ with plots:
 with firstone:
     st.title('Data analyze')
     st.write(df)
-    data = df.groupby(['author'])['minmax_norm_ratings'].mean()
+    data = df.groupby(['author'])['minmax_norm_ratings'].mean().round(2)
     st.write(data)
-    st.write(df)
+    fig = data.head(100)
+    st.bar_chart(fig)
 
 with bestbook_author:
     
