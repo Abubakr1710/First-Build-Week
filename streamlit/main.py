@@ -53,6 +53,10 @@ with plots:
 
 with firstone:
     st.title('Data analyze')
+    st.write(df)
+    data = df.groupby(['author'])['minmax_norm_ratings'].mean()
+    st.write(data)
+    st.write(df)
 
 with bestbook_author:
     
