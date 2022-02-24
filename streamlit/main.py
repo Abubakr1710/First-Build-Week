@@ -57,8 +57,12 @@ with firstone:
     st.write(df)
     data = df.groupby(['author'])['minmax_norm_ratings'].mean().round(2)
     st.write(data)
-    fig = data.head(100)
+    fig = data.head(70)
     st.bar_chart(fig)
+
+
+    #fig = px.scatter(df, x = 'Weight', y = 'Height', size='Index',color='Index', hover_name='Index')
+    #st.write(fig)
 
 with bestbook_author:
     
