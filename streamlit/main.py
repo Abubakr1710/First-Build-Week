@@ -10,8 +10,10 @@ sidebar = st.sidebar
 header = st.container()
 dataset = st.container()
 plots =st.container()
+firstone = st.container()
 bestbook_author = st.container()
 bestbook = st.container()
+
 
 with sidebar:
     st.image('data//img1.jpg')
@@ -21,12 +23,12 @@ with sidebar:
     st.markdown('* **Islom**')
     st.markdown('* **Abubakr**')
 
-
-    add_selectbox = st.sidebar.selectbox(
-    "Do you want to contact with us?",
-    ("Peter","Busayo","Islom","Abubakr"))
-    
-
+    st.header('Data analyze')
+    st.markdown('* **1:** Group the books by original_publish_year and get the mean of the minmax_norm_ratings of the groups.')
+    st.markdown('* **2:** Create a function that given an author as input it returns her/his book with the highest minmax_norm_ratings.')
+    st.markdown('* **3:** Which 50 books should i stock up as a bookstore and should it be part of a series or no series?')
+    st.markdown('* **4:** Do the number of ratings affect the actual rating provided? Can this be used to make the decision to read a book or not?')
+    st.markdown('* **5:** Do the number of awards actually mean that the book got a higher rating? Do it on author by author basis as well!')
 
 with header:
     st.title('Welcome to our project')
@@ -49,8 +51,13 @@ with plots:
     graph1 = df['num_rating'].head(21)
     st.bar_chart(graph1)
 
+with firstone:
+    st.title('Data analyze')
+
 with bestbook_author:
     
+
+    st.markdown('* **This is answer for 2**')
     st.header('Best book of any Authors')
 
     author_name  = df['author'].unique().tolist()
@@ -64,6 +71,7 @@ with bestbook_author:
 
 
 with bestbook:
+    st.markdown('* **This is answer for 4**')
     st.header('Here you can find the best books to read by rating')
     data = pd.read_csv('C:/Users/Abubakr/Documents/GitHub/First-Build-Week/new_data.csv')
 
