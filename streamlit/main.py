@@ -58,12 +58,16 @@ with firstone:
     st.write(df)
     data = df.groupby(['original_publish_year'])['minmax_norm_ratings'].mean().round(2)
     st.write(data)
-    fig = data.sort_values(ascending=False)
-    st.bar_chart(fig)
-
-    fig = px.scatter(data, x = 'original_publish_year', y = 'minmax_norm_ratings', color ='minmax_norm_ratings' ,size='num_ratings')
+    fig = px.bar(data)
     st.write(fig)
-
+    #----------------------------------------------------------#
+    fig = px.scatter(df, x="original_publish_year", y="minmax_norm_ratings", animation_frame=df['original_publish_year'].sort_values(ascending=True),
+        color="minmax_norm_ratings",log_x=True, log_y=True)
+    st.write(fig)
+    #----------------------------------------------------------#
+    fig = px.scatter(df, x = 'original_publish_year', y = 'minmax_norm_ratings', color ='minmax_norm_ratings' ,size='num_ratings')
+    st.write(fig)
+    #----------------------------------------------------------#   
 with bestbook_author:
     
 
