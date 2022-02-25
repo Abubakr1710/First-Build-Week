@@ -90,7 +90,7 @@ with bestbook_author:
     df1=df1[df1['minmax_norm_ratings'] == chminmax]
     name_book1 = df1[df1['minmax_norm_ratings']==chminmax].sort_values('mean_norm_ratings', ascending=False)['title'].head(1).item()
     auth_book1 = df1[df1['minmax_norm_ratings']==chminmax].sort_values('mean_norm_ratings', ascending=False)['author'].head(1).item()
-    st.write("Book name is:", name_book1)
+    st.write("Book kname is:", name_book1)
     st.write('Name of author:',auth_book1)
 
 
