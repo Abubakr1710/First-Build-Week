@@ -31,9 +31,14 @@ with sidebar:
 
 with header:
     st.title('Welcome to our project')
+    st.markdown('* **A look closer into data**')
     df = pd.read_csv('C:/Users/Abubakr/Documents/GitHub/First-Build-Week/new_data.csv')
+    df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
     st.write(df)
 
+
+st.subheader('Something about graphs')
+st.markdown('* **Average ratings by publication year**')
 def p1(df):
     data =  df.groupby(['original_publish_year'])['minmax_norm_ratings'].mean().round(2)
     fig = px.bar(data)
@@ -41,14 +46,16 @@ def p1(df):
 test2 = p1(df)
 st.write(test2)
 
+
+
 def p2(df):
-    st.markdown('* **Here must be something**')
     fig = px.scatter(df, x = 'original_publish_year', y = 'minmax_norm_ratings', color ='minmax_norm_ratings' ,size='num_ratings')
     return fig
 test = p2(df)
-st.header('Here must be something')
 st.write(test)
 
+st.title('Do you want to find best books to read?')
+st.markdown('* **here must be something**')
 def p3(df):
     author_name  = df['author'].unique().tolist()
     author = st.selectbox('Choose author', author_name, 0)
@@ -57,7 +64,17 @@ def p3(df):
 test3 = p3(df)
 st.write("Author's best book is:",test3[0])
 st.write('The Rating of the book is:',test3[1])
-    
+
+st.markdown('* **here must be something**')
+def p4(df):
+    withminmax = df['minmax_norm_ratings'].unique().tolist()
+    chminmax = st.selectbox('Choose rating(Rating is between 1 and 10)', withminmax, 0)
+    df= df[df['minmax_norm_ratings'] == chminmax]
+    return df[df['minmax_norm_ratings']==chminmax].sort_values('mean_norm_ratings', ascending=False)['title'].head(1).item(), df[df['minmax_norm_ratings']==chminmax].sort_values('mean_norm_ratings', ascending=False)['author'].head(1).item() 
+test4 = p4(df)
+st.write("Book name is:",test4[0])
+st.write('Name of author:',test4[1])
+
     
     
     
