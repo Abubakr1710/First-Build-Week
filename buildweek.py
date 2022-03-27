@@ -36,3 +36,22 @@ print(len(book_titles))
 
 
 
+def url_getter(url):
+    page_all = requests.get(url)
+    soup = BeautifulSoup(page_all.content, "html.parser")
+    return soup
+
+page1 = url_getter(url_links)
+
+def award(soup):
+    award1000 = soup.find_all('span', itemprop='numberOfPages')
+    book_award =[]
+    for award in award1000:
+        sleep(0.5)
+        bo_award= award.text
+        bo_award = bo_award.replace('\n', '')
+        book_award.append(bo_award)
+    return book_award
+
+first100_book_award =award(page1)
+print(first100_book_award)
